@@ -5,6 +5,7 @@ server:
 eureka:
   client:
     serviceUrl:
+      # En mode docker hostname = nom du service (spring.application.name)
       defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
   instance:
     preferIpAddress: true

@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Devrait être dans un package à part.
+ */
 @Getter
 @Setter
 @ToString

@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
+/**
+ * Devrait être dans un package à part.
+ */
 @Getter
 @Setter
 @AllArgsConstructor

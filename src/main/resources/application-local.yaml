@@ -4,6 +4,7 @@ spring:
       client:
         simple:
           instances:
+            # On peut aussi déclarer ici les URLs des remote services
             StockService:
               - uri: http://localhost:8080
             CurrencyConverter:

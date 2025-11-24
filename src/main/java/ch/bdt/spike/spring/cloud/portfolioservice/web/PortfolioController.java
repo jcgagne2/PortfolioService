@@ -4,37 +4,34 @@ import ch.bdt.spike.spring.cloud.currencyconverter.api.PriceWithCurrency;
 import ch.bdt.spike.spring.cloud.portfolioservice.api.Portfolio;
 import ch.bdt.spike.spring.cloud.portfolioservice.api.PositionValue;
 import ch.bdt.spike.spring.cloud.portfolioservice.service.ICurrencyConverterClient;
-import ch.bdt.spike.spring.cloud.portfolioservice.service.MyStockServiceClient;
+import ch.bdt.spike.spring.cloud.portfolioservice.service.IStockServiceClient;
 import ch.bdt.spike.spring.cloud.stockservice.api.StockPrice;
-import io.micrometer.observation.annotation.Observed;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @Slf4j
 public class PortfolioController {
     private final Portfolio portfolio = new Portfolio();
     @Resource
-    private MyStockServiceClient stockServiceClient;
+    private IStockServiceClient stockServiceClient;
 
     @Resource
     private ICurrencyConverterClient currencyConverterClient;
 
     @PostConstruct
     public void init() {
+        // On initie le portefeuille avec quelques actions au démarrage
+        log.info("initializing portfolio");
         portfolio.addPosition("AAPL", 10);
         portfolio.addPosition("MSFT", 5);
         portfolio.addPosition("GOOG", 2);
     }
 
-    @Observed(name = "my hello", contextualName = "PortfolioController.hello", lowCardinalityKeyValues = {"class.name", "PortfolioController"})
     @GetMapping("/")
     public String hello() {
         return "Hello World";
