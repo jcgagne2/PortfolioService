@@ -5,6 +5,7 @@ server:
 eureka:
   client:
     serviceUrl:
+      # Dans docker, hostname = nom du service
       defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
   instance:
     preferIpAddress: true
