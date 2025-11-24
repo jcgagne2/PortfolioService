@@ -1,3 +1,8 @@
+Voir la branche `security-session-redis` pour une version avec
+- Spring Security
+- Session distribuée avec Spring Session + Redis
+
+
 # Logs et Traces avec Open Telemetry java agent
 Ajouter ceci à la ligne de commande (VM options)
 ```
