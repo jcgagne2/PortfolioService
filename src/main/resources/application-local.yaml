@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            StockService:
+              - uri: http://localhost:8080
+            CurrencyConverter:
+              - uri: http://localhost:8081
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    enabled: false
+
