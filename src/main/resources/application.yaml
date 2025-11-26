@@ -4,10 +4,17 @@ spring:
 
   profiles:
     active: local
+
   data:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
+
+  # Pour avoir des sessions indépendantes
+  # Voir aussi SecurityConfig.cookieSerializer
+  session:
+    redis:
+      namespace: PortfolioService
 
 server:
   port: 8082
