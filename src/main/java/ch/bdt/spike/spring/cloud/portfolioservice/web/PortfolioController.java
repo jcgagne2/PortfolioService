@@ -32,11 +32,6 @@ public class PortfolioController {
         portfolio.addPosition("GOOG", 2);
     }
 
-    @GetMapping("/")
-    public String hello() {
-        return "Hello World";
-    }
-
     @GetMapping("/getPortfolio")
     public Portfolio getPortfolio() {
         return portfolio;
