@@ -4,19 +4,18 @@ import ch.bdt.spike.spring.cloud.stockservice.api.StockPrice;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.lang.NonNull;
 
 @Getter
 @Setter
 @ToString
-public class PositionValue  {
+public class PositionValue {
     private StockPrice unitPrice;
 
     private int count;
 
     private double value;
 
-    public PositionValue(@NonNull StockPrice unitPrice, int count) {
+    public PositionValue(StockPrice unitPrice, int count) {
         this.unitPrice = unitPrice;
         this.count = count;
         this.value = unitPrice.getPrice() * count;

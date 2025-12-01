@@ -1,6 +1,16 @@
-
 server:
   port: 8080
+  servlet:
+    session:
+      cookie:
+        secure: false
+
+spring:
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
+  session:
 
 eureka:
   client:

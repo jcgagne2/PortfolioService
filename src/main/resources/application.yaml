@@ -1,6 +1,7 @@
 spring:
   application:
     name: PortfolioService
+    version: 1.0.3
 
   profiles:
     active: local
@@ -12,9 +13,9 @@ spring:
 
   # Pour avoir des sessions indépendantes
   # Voir aussi SecurityConfig.cookieSerializer
-  session:
-    redis:
-      namespace: PortfolioService
+#  session:
+#    redis:
+#      namespace: PortfolioService
 
 server:
   port: 8082
@@ -26,3 +27,15 @@ server:
         http-only: true
         secure: true
 
+logging:
+  level:
+    # Affiche les détails des requêtes traitées par le conteneur de servlets
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    # 1. Spring Session : Loggue les interactions de session
+    org.springframework.session: DEBUG
+
+    # 2. Spring Security : Loggue le chargement du SecurityContext
+    org.springframework.security: DEBUG
+
+    # 3. Spring Data Redis : Loggue les commandes Redis (si vous utilisez le client par défaut)
+    org.springframework.data.redis: DEBUG
